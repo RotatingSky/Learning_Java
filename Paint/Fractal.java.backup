@@ -1,0 +1,171 @@
+/**
+ *	@auther		Sny
+ *	@date		2018-03-23
+ *	@version	1.00
+ */
+
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import java.util.Random;
+
+public class Fractal extends JFrame {
+	public static final double PI = Math.PI / 180;
+	private double x1 = 0, y1 = 0;
+	private double x = 0, y = 0;
+	private static Complex z = new Complex(0, 0);
+	private JFrame fractalFrame;
+	private Graphics g;
+	private static Random random = new Random();
+
+	public static void main(String[] args) {
+		Fractal fractal = new Fractal();
+		fractal.initWindow();
+		//fractal.drawFractal(0, 300, 600, 300, 10);
+		fractal.drawFractal(126, 200, 474, 200, 10);
+		fractal.drawFractal(474, 200, 300, 500, 10);
+		fractal.drawFractal(300, 500, 126, 200, 10);
+		//fractal.drawFractal(z, 1.0, 20);
+		//fractal.drawLeaf(300, 400, 100, 200 + random.nextInt(100));
+	}
+
+	public void initWindow() {
+		this.setTitle("Fractal");
+		this.setSize(600, 600);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+
+	public void drawFractal(double a, double b, double c, double d) {
+		// Draw points by drawLine function.
+		this.g = this.getGraphics();
+		//double a = 1.4, b = 1.56, c = 1.4, d = -6.56;
+		//double a = -2, b = -2, c = -1.2, d = 2;
+		double factor = 37;
+		for(int i = 0; i < 50000; ++i)
+		{
+			x = d * Math.sin(a * x1) - Math.sin(b * y1);
+			y = c * Math.cos(a * x1) + Math.cos(b * y1);
+			this.g.drawLine(
+				(int)(factor * x) + 300,
+				(int)(factor * y) + 300,
+				(int)(factor * x) + 300,
+				(int)(factor * y) + 300);
+			x1 = x;
+			y1 = y;
+		}
+	}
+
+	public void drawFractal(double a, double b, double c) {
+		// Draw points by drawLine function.
+		this.g = this.getGraphics();
+		//double a = 0.4, b = 1, c = 0;
+		//double a = 1, b = 4, c = 60;
+		double factor = 100;
+		for(int i = 0; i < 50000; ++i)
+		{
+			x = y1 - Math.signum(x1) * Math.sqrt(Math.abs(b * x1 - c));
+			y = a - x1;
+			this.g.drawLine(
+				(int)(factor * x) + 300,
+				(int)(factor * y) + 300,
+				(int)(factor * x) + 300,
+				(int)(factor * y) + 300);
+			x1 = x;
+			y1 = y;
+		}
+	}
+
+	public void drawFractal(int x1, int y1, int x2, int y2, int depth) {
+		this.g = this.getGraphics();
+		this.g.drawLine(x1, y1, x2, y2);
+		if(depth <= 1) {
+			return;
+		}
+		else {
+			double x11 = (x1 * 2 + x2) / 3;
+			double y11 = (y1 * 2 + y2) / 3;
+			double x22 = (x1 + x2 * 2) / 3;
+			double y22 = (y1 + y2 * 2) / 3;
+			double x33 = (x11 + x22) / 2 - (y11 - y22) * Math.sqrt(3) / 2;
+			double y33 = (y11 + y22) / 2 - (x22 - x11) * Math.sqrt(3) / 2;
+
+			this.g.setColor(this.getBackground());
+			this.g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
+			this.g.setColor(Color.black);
+			drawFractal((int)x1, (int)y1, (int)x11, (int)y11, depth - 1);
+			drawFractal((int)x11, (int)y11, (int)x33, (int)y33, depth - 1);
+			drawFractal((int)x33, (int)y33, (int)x22, (int)y22, depth - 1);
+			drawFractal((int)x22, (int)y22, (int)x2, (int)y2, depth - 1);
+		}
+	}
+
+	public int mand(Complex z, int maxIter) {
+		Complex curComp = new Complex(0, 0);
+		for(int i = 0; i < maxIter; ++i) {
+			if(curComp.modulus() > 2)
+				return i;
+			curComp = curComp.mul(curComp).add(z);
+		}
+		return maxIter;
+	}
+
+	public void drawFractal(Complex z, double scale, int maxIter) {
+		double pixUnit = 3 / (600 * scale);
+		double startX = z.re - 600 * pixUnit / 2;
+		double startY = z.im - 600 * pixUnit / 2;
+		for(int i = 0; i < 600; ++i) {
+			for(int j = 0; j < 600; ++j) {
+				double x0 = startX + i * pixUnit;
+				double y0 = startY + j * pixUnit;
+				Complex curComp = new Complex(x0, y0);
+				int time = mand(curComp, maxIter);
+				if(time == maxIter) {
+					double x = x0 * 150 + 300;
+					double y = y0 * 150 + 300;
+					this.g = this.getGraphics();
+					this.g.drawLine((int)x, (int)y, (int)x, (int)y);
+				}
+			}
+		}
+	}
+
+	public void drawLeaf(double x, double y, double L, double a) {
+		int red = random.nextInt(127);
+		int green = random.nextInt(127);
+		int blue = random.nextInt(127);
+		this.g = this.getGraphics();
+		this.g.setColor(new Color(red, green, blue));
+		double x1, x2, x1L, x2L, x2R, x1R, y1, y2, y1L, y2L, y2R, y1R;
+		float deflection = 50 -random.nextInt(20);
+		float intersection = random.nextInt(40) - 20;
+		float depth	= 2 + random.nextInt(2);
+		float ratio = 3f;
+		float ratio2 = 1.2f;
+		if(L > depth) {
+			x2 = x + L * Math.cos(a * PI);
+			y2 = y + L * Math.sin(a * PI);
+			x2R = x2 + L / ratio * Math.cos((a + deflection) * PI);
+			y2R = y2 + L / ratio * Math.sin((a + deflection) * PI);
+			x2L = x2 + L / ratio * Math.cos((a - deflection) * PI);
+			y2L = y2 + L / ratio * Math.sin((a - deflection) * PI);
+			x1 = x + L / ratio * Math.cos(a * PI);
+			y1 = y + L / ratio * Math.sin(a * PI);
+			x1L = x1 + L / ratio * Math.cos((a - deflection) * PI);
+            y1L = y1 + L / ratio * Math.sin((a - deflection) * PI);
+            x1R = x1 + L / ratio * Math.cos((a + deflection) * PI);
+            y1R = y1 + L / ratio * Math.sin((a + deflection) * PI);
+            this.g.drawLine((int)x, (int)y, (int)x2, (int)y2);
+            this.g.drawLine((int)x2, (int)y2, (int)x2R, (int)y2R);
+            this.g.drawLine((int)x2, (int)y2, (int)x2L, (int)y2L);
+            this.g.drawLine((int)x1, (int)y1, (int)x1L, (int)y1L);
+            this.g.drawLine((int)x1, (int)y1, (int)x1R, (int)y1R);
+            drawLeaf(x2, y2, L / ratio2, a + intersection);
+            drawLeaf(x2R, y2R, L / ratio, a + deflection);
+            drawLeaf(x2L, y2L, L / ratio, a - deflection);
+            drawLeaf(x1L, y1L, L / ratio, a - deflection);
+            drawLeaf(x1R, y1R, L / ratio, a + deflection);
+		}
+	}
+}
