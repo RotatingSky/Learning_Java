@@ -1,4 +1,4 @@
-# Learning_Java[https://github.com/RotatingSky/Learning_Java.git]
+# [Learning_Java](https://github.com/RotatingSky/Learning_Java.git)
 
 ## Projects:
 
