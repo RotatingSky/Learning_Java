@@ -4,3 +4,4 @@
 
 * Paint fractal figures
 * Calculator
+* Dictionary
