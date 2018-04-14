@@ -1,17 +1,20 @@
 /**
- *  FileName:       Dictionary.java
- *  @auther         Sny
- *  @date           2018-04-13
- *  @version        1.00
- *  @see            ActionListener
- *  @description    Realize dictionary
+ * FileName:    Dictionary.java
+ * Copyright:   all by yourself
  */
 
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Realize a dictionary which has insert and search functions.
+ * @author      Sny
+ * @since       2018-04-13
+ * @version     1.00
+ * @see         ActionListener
+ */
 public class Dictionary implements ActionListener {
-
+    // Private variables.
     private Database dbDictionary;
     private Frame insertFrame;
     private Frame searchFrame;
@@ -27,7 +30,8 @@ public class Dictionary implements ActionListener {
 	private Button searchBtn;
 
     /**
-     *
+     * Constructor: Create 2 frames and a database.
+     * @return  none
      */
     public Dictionary() {
         // Create 2 frames.
@@ -81,11 +85,29 @@ public class Dictionary implements ActionListener {
         dbDictionary = new Database();
     }
 
-    public void displayWord(Word result) {
+    /**
+     * @param   result Word to show
+     * @return  none
+     */
+    public void insertDisplay(Word result) {
+        insertChTF.setText(result.getChinese());
+        insertEnTF.setText(result.getEnglish());
+    }
+
+    /**
+     * @param   result  Word to show
+     * @return  none
+     */
+    public void searchDisplay(Word result) {
         searchChTF.setText(result.getChinese());
         searchEnTF.setText(result.getEnglish());
     }
 
+    /**
+     * Realize insert and search functions.
+     * @param   e   Button action event
+     * @return  none
+     */
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == insertBtn) {
             Word newWord = new Word(insertChTF.getText(), insertEnTF.getText());
@@ -95,12 +117,20 @@ public class Dictionary implements ActionListener {
         else if(e.getSource() == searchBtn) {
             Word findWord = new Word(searchChTF.getText(), searchEnTF.getText());
             if(dbDictionary.search(findWord)) {
-                displayWord(findWord);
+                searchDisplay(findWord);
             }
         }
     }
 
+    /**
+     * Create a Dictionary and show some information.
+     * @param   args    System parameters
+     * @return  none
+     */
     public static void main(String[] args) {
         Dictionary dict = new Dictionary();
+        Word prompt = new Word("(中文)", "(English)");
+        dict.insertDisplay(prompt);
+        dict.searchDisplay(prompt);
     }
 }
