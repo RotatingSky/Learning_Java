@@ -5,3 +5,4 @@
 * Paint fractal figures
 * Calculator
 * Dictionary
+* Dictionary_JSP

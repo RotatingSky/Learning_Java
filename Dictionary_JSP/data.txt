@@ -1,0 +1,14 @@
+作者 author
+版本 version
+文件 file
+日期 date
+增量 increment
+公开 public
+返回 return
+提示 prompt
+中文 chinese
+英文 english
+数字 digit
+机器 machine
+梦想 dream
+设计 design
