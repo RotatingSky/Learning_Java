@@ -5,4 +5,4 @@
 * Paint fractal figures
 * Calculator
 * Dictionary
-* Dictionary_JSP
+* Dictionary_JSP(You should move data.txt to {CATALINA_PATH}/bin/)
