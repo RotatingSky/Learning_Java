@@ -1,0 +1,58 @@
+/*
+    Create by Sny on 2018-04-25
+    Used by web.jsp and recite.jsp
+*/
+
+body {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+h1 {
+    color: midnightblue;
+}
+
+textarea {
+    resize: none;
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+}
+
+table {
+    text-align: center;
+    margin: 0px auto;
+}
+
+th {
+    width: 200px;
+}
+
+#container {
+    margin: 0px auto;
+}
+
+#gif_display {
+    margin: 50px;
+    opacity: 0.618;
+}
+
+#reciteFrame {
+    width: 900px;
+    height: 400px;
+    margin: 0px;
+    border: 0px;
+}
+
+#tableHead {
+    color: blueviolet;
+}
+
+#dictionary_eg {
+    border: 2px solid chocolate;
+}
+
+.btnClass {
+    width: 100px;
+    color: midnightblue;
+}

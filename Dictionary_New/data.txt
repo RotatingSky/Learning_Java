@@ -1,0 +1,16 @@
+作者 author 8
+版本 version 12
+文件 file 11
+日期 date 11
+增量 increment 12
+公开 public 12
+返回 return 11
+提示 prompt 11
+中文 chinese 11
+英文 english 13
+数字 digit 15
+机器 machine 15
+梦想 dream 15
+设计 design 19
+字典 dictionary 12
+编译 compile 7
