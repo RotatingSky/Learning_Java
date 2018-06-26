@@ -1,0 +1,224 @@
+/*
+ * Create by Sny on 2018-06-08
+ * Used by index.html
+ */
+
+body {
+    text-align: center;
+    background-color: rgb(228, 228, 228);
+}
+
+a {
+    text-decoration-line: none;
+}
+
+a:link,
+a:visited {
+    color: darkblue;
+}
+
+select {
+    width: 50%;
+}
+
+thead {
+    background-color: palegoldenrod;
+    color: midnightblue;
+}
+
+tbody {
+    background-color: aliceblue;
+    color: black;
+}
+
+tfoot {
+    background-color: lightpink;
+    color: blue;
+}
+
+.logo_field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 60px;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+    color: midnightblue;
+}
+
+.logout_field {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 60%;
+    height: 60px;
+    float: left;
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+}
+
+.user_name {
+    color: grey;
+}
+
+.time_field {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 60px;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.line_field {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.split_body {
+    height: 2px;
+    margin: 0px;
+    border: none;
+    border-top: 2px solid darkgray;
+}
+
+.bookmarks {
+    width: 20%;
+    height: 560px;
+    float: left;
+    background-color: aliceblue;
+    opacity: 0.6;
+}
+
+.body_field {
+    width: 80%;
+    height: 560px;
+    float: left;
+}
+
+.form_field {
+    width: 100%;
+}
+
+.select_field {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    float: left;
+    background-color: paleturquoise;
+    color: midnightblue;
+}
+
+.upload_field,
+.generate_field,
+.body_place_holer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 40px;
+    float: left;
+    background-color: palegreen;
+    color: midnightblue;
+}
+
+.options_field {
+    margin: 0px;
+    text-align: left;
+    list-style: none;
+}
+
+.option_link {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.option_link:hover {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: midnightblue;
+    opacity: 1.0;
+}
+
+.form-input {
+    width: 30%;
+}
+
+.form-btn-submit {
+    width: 15%;
+    color:  gray;
+}
+
+.form-input-score {
+    width: 70%;
+}
+
+.form-btn-submit-score {
+    width: 70%;
+    color: gray;
+    font-size: 12px;
+}
+
+.split_body_inside {
+    height: 2px;
+    margin: 0px;
+    border: none;
+    border-top: 2px solid cornflowerblue;
+}
+
+.table_field {
+    width: 100%;
+}
+
+.ams_table {
+    width: 100%;
+}
+
+.upA_table-filename,
+.downA_table-filename,
+.manS_table-filename,
+.manSelf_table-filename {
+    width: 40%;
+}
+
+.upA_table-th {
+    width: 15%;
+}
+
+.downA_table-th {
+    width: 12%;
+}
+
+.manS_table-th {
+    width: 10%;
+}
+
+.manSelf_talbe-th {
+    width: 15%;
+}
+
+.score_field {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 40px;
+    float: left;
+    background-color: palegoldenrod;
+    color: midnightblue;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    clear: both;
+    color: midnightblue;
+}

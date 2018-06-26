@@ -1,0 +1,71 @@
+/*
+ * Create by Sny on 2018-06-08
+ * Used by index.html
+ */
+
+body {
+    text-align: center;
+    background-color: rgb(228, 228, 228);
+}
+
+.container-logo {
+    width: 100px;
+    height: auto;
+}
+
+.content {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form-header {
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+}
+
+.form-body {
+    border: 2px solid rgb(135, 135, 182);
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.form-label {
+    display: block;
+    margin-top: 5px;
+    margin-left: 17px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.form-input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 250px;
+}
+
+.form-remind {
+    color:red;
+    width: 250px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 10px;
+}
+
+.form-btn-submit {
+    width: 250px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.signin-description {
+    margin-top: 30px;
+    color: rgb(96, 96, 96);
+}
+
+.sign-link {
+    margin: 5px;
+    font-size: 16px;
+    color: rgb(13, 168, 240);
+    text-decoration: none;
+}
